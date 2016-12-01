@@ -6,25 +6,19 @@ import android.widget.TextView;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import dragon.com.mvptest.ui.api.ApiServiceImpl;
 import dragon.com.mvptest.App;
+import dragon.com.mvptest.R;
 import dragon.com.mvptest.ui.models.Post;
 import dragon.com.mvptest.ui.presenters.PostPresenter;
 import dragon.com.mvptest.ui.presenters.PostPresenterImpl;
 import dragon.com.mvptest.ui.repo.PostRepository;
-import dragon.com.mvptest.ui.repo.PostRepositoryImpl;
 import dragon.com.mvptest.ui.views.PostView;
-import dragon.com.mvptest.R;
-import dragon.com.mvptest.dagger.ApiService;
-import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity implements PostView {
 
     @Inject
-    Retrofit retrofit;
-    @BindView(R.id.textview_post)
+    PostRepository repository;
+
     TextView textView;
 
     PostPresenter presenter;
@@ -33,12 +27,8 @@ public class MainActivity extends AppCompatActivity implements PostView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ((App) getApplication()).getPostComponent().inject(this);
 
-        ButterKnife.bind(this);
-        ((App) getApplication()).getNetComponent().inject(this);
-
-        ApiService apiService = new ApiServiceImpl(retrofit);
-        PostRepository repository = new PostRepositoryImpl(apiService);
         presenter = new PostPresenterImpl(this, repository);
 
         textView = (TextView) findViewById(R.id.textview_post);

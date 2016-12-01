@@ -2,10 +2,11 @@ package dragon.com.mvptest;
 
 import android.app.Application;
 
-import dragon.com.mvptest.dagger.component.DaggerNetComponent;
-import dragon.com.mvptest.dagger.component.NetComponent;
+import dragon.com.mvptest.dagger.component.post.DaggerPostComponent;
+import dragon.com.mvptest.dagger.component.post.PostComponent;
 import dragon.com.mvptest.dagger.module.AppModule;
 import dragon.com.mvptest.dagger.module.NetModule;
+import dragon.com.mvptest.dagger.module.post.PostModule;
 
 /**
  * Created by ibrishkoski on 11/21/16.
@@ -13,18 +14,19 @@ import dragon.com.mvptest.dagger.module.NetModule;
 
 public class App extends Application {
 
-    NetComponent netComponent;
+    PostComponent component;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        netComponent = DaggerNetComponent.builder()
+        component = DaggerPostComponent.builder()
                 .appModule(new AppModule(this))
                 .netModule(new NetModule("https://jsonplaceholder.typicode.com/"))
+                .postModule(new PostModule())
                 .build();
     }
 
-    public NetComponent getNetComponent(){
-        return netComponent;
+    public PostComponent getPostComponent(){
+        return component;
     }
 }
