@@ -1,6 +1,6 @@
 package dragon.com.mvptest.dagger.module.post;
 
-import dragon.com.mvptest.ApiService;
+import dragon.com.mvptest.ui.api.PostApiService;
 import dragon.com.mvptest.ui.repo.PostRepository;
 import retrofit2.Retrofit;
 
@@ -10,7 +10,7 @@ import retrofit2.Retrofit;
 
 public interface IPostModule {
 
-    ApiService provideService(Retrofit retrofit);
+    PostApiService provideService(Retrofit retrofit);
 
-    PostRepository providePostRepo(ApiService apiService);
+    PostRepository providePostRepo(PostApiService apiService);
 }

@@ -3,6 +3,7 @@ package dragon.com.mvptest.ui.repo;
 import java.util.List;
 
 import dragon.com.mvptest.ApiService;
+import dragon.com.mvptest.ui.api.PostApiService;
 import dragon.com.mvptest.ui.models.Post;
 
 /**
@@ -11,9 +12,9 @@ import dragon.com.mvptest.ui.models.Post;
 
 public class PostRepositoryImpl implements PostRepository {
     List<Post> posts;
-    ApiService apiService;
+    PostApiService apiService;
 
-    public PostRepositoryImpl(ApiService apiService) {
+    public PostRepositoryImpl(PostApiService apiService) {
         this.apiService = apiService;
     }
 

@@ -15,7 +15,7 @@ import retrofit2.Retrofit;
  * Created by ibrishkoski on 11/21/16.
  */
 
-public class ApiServiceImpl implements ApiService {
+public class ApiServiceImpl implements PostApiService {
     Retrofit retrofit;
 
     public ApiServiceImpl(Retrofit retrofit) {
