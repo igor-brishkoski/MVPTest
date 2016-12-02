@@ -1,4 +1,4 @@
-package dragon.com.mvptest.dagger;
+package dragon.com.mvptest;
 
 import java.util.List;
 

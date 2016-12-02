@@ -2,7 +2,7 @@ package dragon.com.mvptest.ui.repo;
 
 import java.util.List;
 
-import dragon.com.mvptest.dagger.ApiService;
+import dragon.com.mvptest.ApiService;
 import dragon.com.mvptest.ui.models.Post;
 
 /**

@@ -4,7 +4,7 @@ import android.util.Log;
 
 import java.util.List;
 
-import dragon.com.mvptest.dagger.ApiService;
+import dragon.com.mvptest.ApiService;
 import dragon.com.mvptest.ui.models.Post;
 import retrofit2.Call;
 import retrofit2.Callback;
