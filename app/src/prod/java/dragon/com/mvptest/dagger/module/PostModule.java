@@ -1,9 +1,10 @@
-package dragon.com.mvptest.dagger.module.post;
+package dragon.com.mvptest.dagger.module;
 
 import dagger.Module;
 import dagger.Provides;
-import dragon.com.mvptest.ApiService;
+import dragon.com.mvptest.dagger.module.post.IPostModule;
 import dragon.com.mvptest.ui.api.ApiServiceImpl;
+import dragon.com.mvptest.ui.api.PostApiService;
 import dragon.com.mvptest.ui.repo.PostRepository;
 import dragon.com.mvptest.ui.repo.PostRepositoryImpl;
 import retrofit2.Retrofit;
@@ -14,18 +15,13 @@ import retrofit2.Retrofit;
 @Module
 public class PostModule implements IPostModule {
 
-    public PostModule() {
-    }
-
-    @Override
     @Provides
-    public ApiService provideService(Retrofit retrofit) {
+    public PostApiService provideService(Retrofit retrofit) {
         return new ApiServiceImpl(retrofit);
     }
 
-    @Override
     @Provides
-    public PostRepository providePostRepo(ApiService apiService) {
+    public PostRepository providePostRepo(PostApiService apiService) {
         return new PostRepositoryImpl(apiService);
     }
 

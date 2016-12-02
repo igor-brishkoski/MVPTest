@@ -15,7 +15,7 @@ import dragon.com.mvptest.dagger.module.post.FakePostModule;
 
 public class ComponentFactory {
 
-    public static final FakePostComponent create(Application application) {
+    public static FakePostComponent create(Application application) {
         return DaggerFakePostComponent.builder()
                 .appModule(new AppModule(application))
                 .netModule(new NetModule("https://www.wework.com"))
