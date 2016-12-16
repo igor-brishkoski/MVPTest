@@ -6,7 +6,7 @@ import dagger.Component;
 import dragon.com.mvptest.dagger.component.IPostComponent;
 import dragon.com.mvptest.dagger.module.AppModule;
 import dragon.com.mvptest.dagger.module.NetModule;
-import dragon.com.mvptest.dagger.module.post.PostModule;
+import dragon.com.mvptest.dagger.module.PostModule;
 import dragon.com.mvptest.ui.MainActivity;
 
 /**

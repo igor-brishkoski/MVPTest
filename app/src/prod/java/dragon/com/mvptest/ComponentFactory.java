@@ -6,7 +6,7 @@ import dragon.com.mvptest.dagger.component.post.DaggerPostComponent;
 import dragon.com.mvptest.dagger.component.post.PostComponent;
 import dragon.com.mvptest.dagger.module.AppModule;
 import dragon.com.mvptest.dagger.module.NetModule;
-import dragon.com.mvptest.dagger.module.post.PostModule;
+import dragon.com.mvptest.dagger.module.PostModule;
 
 /**
  * Created by ibrishkoski on 12/2/16.

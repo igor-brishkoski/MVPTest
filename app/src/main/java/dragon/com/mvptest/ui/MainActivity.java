@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import dragon.com.mvptest.App;
 import dragon.com.mvptest.R;
 import dragon.com.mvptest.ui.models.Post;
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements PostView {
     @Inject
     PostRepository repository;
 
+    @BindView(R.id.textview_post)
     TextView textView;
 
     PostPresenter presenter;
@@ -27,11 +30,11 @@ public class MainActivity extends AppCompatActivity implements PostView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ((App) getApplication()).getPostComponent().inject(this);
+        ButterKnife.bind(this);
 
         presenter = new PostPresenterImpl(this, repository);
-
-        textView = (TextView) findViewById(R.id.textview_post);
     }
 
     @Override
