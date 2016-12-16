@@ -24,7 +24,7 @@ public class PostPresenterImpl implements PostPresenter {
         postRepository.loadPosts(new PostRepository.RepositoryCallback<List<Post>>() {
             @Override
             public void onResponse(List<Post> data) {
-                view.showPost(data.get(0));
+                view.showPost(data);
             }
 
             @Override

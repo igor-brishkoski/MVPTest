@@ -1,5 +1,7 @@
 package dragon.com.mvptest.ui.views;
 
+import java.util.List;
+
 import dragon.com.mvptest.ui.models.Post;
 
 /**
@@ -7,5 +9,5 @@ import dragon.com.mvptest.ui.models.Post;
  */
 
 public interface PostView {
-    void showPost(Post post);
+    void showPost(List<Post> posts);
 }
