@@ -1,7 +1,7 @@
 package dragon.com.mvptest.ui;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import java.util.List;
@@ -22,8 +22,8 @@ class PostsAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
     @Override
     public PostViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-        return new PostViewHolder(View.inflate(parent.getContext(), R.layout.post_list_item,
-                null));
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        return new PostViewHolder(inflater.inflate(R.layout.post_list_item, parent, false));
     }
 
     @Override
