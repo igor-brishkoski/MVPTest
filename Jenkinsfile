@@ -10,5 +10,5 @@ node {
    stage 'Install'
    echo "Installing to device"
 
-   $ANDROID_HOME/platform-tools/adb install app-dev-debug.apk
+   sh "${ANDROID_HOME}/platform-tools/adb install app-dev-debug.apk"
 }
