@@ -10,7 +10,7 @@ node {
     }
 
     stage('Start Avd'){
-        echo $HOME
+        echo "${HOME}"
         sh "${ANDROID_HOME}/tools/emulator -avd Nexus_5X_API_25"
     }
 
