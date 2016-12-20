@@ -5,7 +5,7 @@ node {
     stage 'Test'
 
     echo "Starting tests"
-    sh "/.gradlew test"
+    sh "./gradlew test"
    
     stage 'Build'
 
