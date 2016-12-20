@@ -10,5 +10,5 @@ node {
    stage 'Install'
    echo pwd
 
-   sh "${ANDROID_HOME}/platform-tools/adb install /app/build/outputs/apk/app-dev-debug.apk"
+   sh "${ANDROID_HOME}/platform-tools/adb install ${pwd}/workspace/MVPTest/app/build/outputs/apk/app-dev-debug.apk"
 }
