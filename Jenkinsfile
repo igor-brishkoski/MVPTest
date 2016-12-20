@@ -9,6 +9,10 @@ node {
         sh "./gradlew test"
     }
 
+    stage('Start Avd'){
+        sh "${ANDROID_HOME}/tools/emulator -avd Nexus_5X_API_25"
+    }
+
     stage('Build') {
         sh "./gradlew clean assembleDevDebug"
     }
