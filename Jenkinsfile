@@ -1,18 +1,21 @@
 node {
-    stage 'Checkout'
-    checkout scm
+    stage('Checkout') {
+        checkout scm
+    }
 
-    stage 'Test'
+    stage('Test') {
 
-    echo "Starting tests"
-    sh "./gradlew test"
-   
-    stage 'Build'
+        echo "Starting tests"
+        sh "./gradlew test"
+    }
 
-    sh "./gradlew clean assembleDevDebug"
-  
-    stage 'Install'
-    echo pwd
+    stage('Build') {
+        sh "./gradlew clean assembleDevDebug"
+    }
 
-    sh "${ANDROID_HOME}/platform-tools/adb install ${pwd}/workspace/MVPTest/app/build/outputs/apk/app-dev-debug.apk"
+    stage('Install') {
+        echo pwd
+
+        sh "${ANDROID_HOME}/platform-tools/adb install ${pwd}/workspace/MVPTest/app/build/outputs/apk/app-dev-debug.apk"
+    }
 }
