@@ -2,8 +2,11 @@ node {
    stage 'Checkout'
    checkout scm
    
-   stage 'Clean'
-   echo "My branch is: ${env.BRANCH_NAME}"
-  
    stage 'Build'
+   echo "My branch is: ${env.BRANCH_NAME}"
+
+    sh "./gradlew clean assembleDevDebug"
+  
+   stage 'Install'
+   echo "Installing to device"
 }
