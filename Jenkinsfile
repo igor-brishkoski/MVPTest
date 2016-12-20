@@ -1,14 +1,18 @@
 node {
-   stage 'Checkout'
-   checkout scm
+    stage 'Checkout'
+    checkout scm
+
+    stage 'Test'
+
+    echo "Starting tests"
+    sh "/.gradlew test"
    
-   stage 'Build'
-   echo "My branch is: ${env.BRANCH_NAME}"
+    stage 'Build'
 
     sh "./gradlew clean assembleDevDebug"
   
-   stage 'Install'
-   echo pwd
+    stage 'Install'
+    echo pwd
 
-   sh "${ANDROID_HOME}/platform-tools/adb install ${pwd}/workspace/MVPTest/app/build/outputs/apk/app-dev-debug.apk"
+    sh "${ANDROID_HOME}/platform-tools/adb install ${pwd}/workspace/MVPTest/app/build/outputs/apk/app-dev-debug.apk"
 }
