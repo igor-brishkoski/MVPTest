@@ -8,7 +8,7 @@ node {
     sh "./gradlew clean assembleDevDebug"
   
    stage 'Install'
-   echo "Installing to device"
+   echo pwd
 
-   sh "${ANDROID_HOME}/platform-tools/adb install app-dev-debug.apk"
+   sh "${ANDROID_HOME}/platform-tools/adb install /app/build/outputs/apk/app-dev-debug.apk"
 }
