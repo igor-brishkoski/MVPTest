@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ import dragon.com.mvptest.ui.presenters.PostPresenterImpl;
 import dragon.com.mvptest.ui.repo.PostRepository;
 import dragon.com.mvptest.ui.views.PostView;
 
-public class MainActivity extends AppCompatActivity implements PostView {
+public class MainActivity extends AppCompatActivity implements PostView, PostViewHolder.PostInteractions {
 
     @Inject
     PostRepository repository;
@@ -51,9 +52,13 @@ public class MainActivity extends AppCompatActivity implements PostView {
 
     @Override
     public void showPost(List<Post> posts) {
-        postsAdapter = new PostsAdapter(posts);
+        postsAdapter = new PostsAdapter(posts, this);
         recyclerView.setAdapter(postsAdapter);
     }
 
 
+    @Override
+    public void goToPost(final Post post) {
+        Toast.makeText(this, "Yooooo", Toast.LENGTH_SHORT).show();
+    }
 }

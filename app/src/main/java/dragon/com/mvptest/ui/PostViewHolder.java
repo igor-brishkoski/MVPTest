@@ -18,18 +18,30 @@ class PostViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.post_list_item_text_body)
     TextView bodyTextView;
 
+    private Post post;
+
     interface PostInteractions {
-        void goToPost();
+        void goToPost(final Post post);
     }
 
 
-    PostViewHolder(final View itemView) {
+    PostViewHolder(final View itemView, final PostInteractions listener) {
         super(itemView);
         ButterKnife.bind(this, itemView);
+
+        bodyTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                listener.goToPost(post);
+            }
+        });
     }
 
     void setup(Post post) {
+        this.post = post;
         titleTextView.setText(post.getTitle());
         bodyTextView.setText(post.getBody());
+
+
     }
 }
