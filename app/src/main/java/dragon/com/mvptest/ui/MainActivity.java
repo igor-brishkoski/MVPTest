@@ -59,6 +59,6 @@ public class MainActivity extends AppCompatActivity implements PostView, PostVie
 
     @Override
     public void goToPost(final Post post) {
-        Toast.makeText(this, "Yooooo", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, post.getTitle(), Toast.LENGTH_SHORT).show();
     }
 }

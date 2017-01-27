@@ -1,5 +1,6 @@
 package dragon.com.mvptest.ui;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -37,11 +38,9 @@ class PostViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    void setup(Post post) {
+    void setup(@NonNull Post post) {
         this.post = post;
         titleTextView.setText(post.getTitle());
         bodyTextView.setText(post.getBody());
-
-
     }
 }
