@@ -13,11 +13,11 @@ import dragon.com.mvptest.ui.models.Post;
  * Created by ibrishkoski on 12/16/16.
  */
 
-class PostsAdapter extends RecyclerView.Adapter<PostViewHolder> {
+class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
     private List<Post> posts;
     private PostViewHolder.PostInteractions listener;
 
-    PostsAdapter(final List<Post> posts, PostViewHolder.PostInteractions listener) {
+    PostAdapter(final List<Post> posts, PostViewHolder.PostInteractions listener) {
         this.posts = posts;
         this.listener = listener;
     }

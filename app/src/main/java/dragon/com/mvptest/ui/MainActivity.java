@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements PostView, PostVie
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
 
-    PostsAdapter postsAdapter;
+    PostAdapter postAdapter;
 
     PostPresenter presenter;
 
@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity implements PostView, PostVie
 
     @Override
     public void showPost(List<Post> posts) {
-        postsAdapter = new PostsAdapter(posts, this);
-        recyclerView.setAdapter(postsAdapter);
+        postAdapter = new PostAdapter(posts, this);
+        recyclerView.setAdapter(postAdapter);
     }
 
 
