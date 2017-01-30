@@ -1,5 +1,7 @@
 package dragon.com.mvptest.ui;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,6 +20,7 @@ import dragon.com.mvptest.ui.models.Post;
 import dragon.com.mvptest.ui.presenters.PostPresenter;
 import dragon.com.mvptest.ui.presenters.PostPresenterImpl;
 import dragon.com.mvptest.ui.repo.PostRepository;
+import dragon.com.mvptest.ui.repo.PostRepositoryImpl;
 import dragon.com.mvptest.ui.views.PostView;
 
 public class MainActivity extends AppCompatActivity implements PostView, PostViewHolder.PostInteractions {
@@ -41,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements PostView, PostVie
         ButterKnife.bind(this);
 
         presenter = new PostPresenterImpl(this, repository);
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        ((PostRepositoryImpl)repository).setNetworkInfo(cm.getActiveNetworkInfo());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
